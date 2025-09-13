@@ -18,25 +18,51 @@ The system integrates a **custom LLVM pass** with a **Python-based RL environmen
 
 ## 🛠 Pipeline
 
-C / C++ Source  
-│  
-▼  
-LLVM IR (clang -emit-llvm)  
-│  
-▼  
-LoopRLOpt LLVM Pass  
-│  
-▼  
-Extract Features → Python RL Environment  
-│  
-▼  
-RL Agent Decision (Vectorize / Don't Vectorize)  
-│  
-▼  
-Optimized IR → Compile → Executable  
-│  
-▼  
-Run & Measure → Reward → RL Agent
++------------------+
+|  C / C++ Source  |
++------------------+
+          │
+          ▼
++------------------+
+|   LLVM IR (.ll)  |
+|  clang -emit-llvm|
++------------------+
+          │
+          ▼
++---------------------------+
+|   LoopRLOpt LLVM Pass     |
+|  (feature extraction &    |
+|   action application)     |
++---------------------------+
+          │
+          ▼
++---------------------------+
+| Python RL Environment     |
+|  (Gym, loads features)    |
++---------------------------+
+          │
+          ▼
++---------------------------+
+|      RL Agent             |
+|  (PPO decides vectorize) |
++---------------------------+
+          │
+          ▼
++---------------------------+
+| Optimized IR (.ll)        |
+| Compile → Executable      |
++---------------------------+
+          │
+          ▼
++---------------------------+
+| Run & Measure Performance |
+|  (feedback → reward)     |
++---------------------------+
+          │
+          ▼
++---------------------------+
+|  RL Agent updates policy  |
++---------------------------+
 
 - The RL agent **closes the loop**, learning continuously from execution feedback.  
 
