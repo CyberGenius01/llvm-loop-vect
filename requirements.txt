@@ -1,0 +1,15 @@
+﻿# RL and Gym environment
+gym==0.26.3
+stable-baselines3==2.2.0
+torch==2.1.0
+torchvision==0.16.1
+numpy==1.26.2
+pandas==2.1.0
+
+# Optional: For logging and visualization
+matplotlib==3.8.0
+seaborn==0.12.3
+
+# For CLI utilities and JSON handling
+pyyaml==6.1
+tqdm==4.68.0
