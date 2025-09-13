@@ -17,7 +17,7 @@ The system integrates a **custom LLVM pass** with a **Python-based RL environmen
 ---
 
 ## 🛠 Pipeline
-
+```
 +------------------+
 |  C / C++ Source  |
 +------------------+
@@ -63,7 +63,7 @@ The system integrates a **custom LLVM pass** with a **Python-based RL environmen
 +---------------------------+
 |  RL Agent updates policy  |
 +---------------------------+
-
+```
 - The RL agent **closes the loop**, learning continuously from execution feedback.  
 
 ---
